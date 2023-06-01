@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verificação de Senha Forte</title>
+  <style>
+    .input-container {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="input-container">
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" />
+  </div>
+  <button onclick="verificarSenha()">Verificar Senha</button>
+
+  <script>
+    function verificarSenha() {
+      var senhaInput = document.getElementById("senha");
+      var senha = senhaInput.value;
+
+      if (isSenhaForte(senha)) {
+        alert("Senha forte: " + senha);
+      } else {
+        alert("Senha fraca: " + senha);
+      }
+    }
+
+    function isSenhaForte(senha) {
+      return senha.length >= 7 && /[a-z]/.test(senha) && /[A-Z]/.test(senha) && /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(senha);
+    }
+  </script>
+</body>
+</html>
